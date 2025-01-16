@@ -1,0 +1,22 @@
+{
+    "bookings": [
+      {
+        "id": 1,
+        "Persons": "Kevin bacon",
+        "date": "January 12, 2025",
+        "time": "7:45:47 PM"
+      },
+      {
+        "id": 2,
+        "Persons": "Jim peckens ",
+        "date": "January 12, 2025",
+        "time": "7:45:47 PM"
+      },
+      {
+        "id": 3,
+        "Persons": "Jackie Chan",
+        "date": "January 12, 2025",
+        "time": "7:45:47 PM"
+      }
+    ]
+  }
