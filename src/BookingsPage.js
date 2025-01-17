@@ -7,10 +7,11 @@ const BookingsPage = ({ bookings }) => {
 
   return (
     <main>
-        <section className='BookingPage'>
+        <section className='BookingsPage'>
             {booking && 
                 <>
                     <h2>{booking.id}</h2>
+                    <h2>{booking.name}</h2>
                     <h2>{booking.Persons}</h2>
                     <p className='bookingDate'>{booking.date}</p>
                     <p className='bookingTime'>{booking.time}</p>

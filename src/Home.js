@@ -3,7 +3,7 @@ import Bookings from './Bookings';
 
 const Home = ({ bookings }) => {
   return (
-    <main>
+    <main className='Home'>
         {bookings.length? ( 
         <ul>
             {bookings.map((booking) => 
