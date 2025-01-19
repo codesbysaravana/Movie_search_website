@@ -3,6 +3,7 @@ import Nav from './Nav';
 import Home from './Home';
 import BookingsPage from './BookingsPage';
 import NewBooking from './NewBooking';
+import EditBooking from './EditBooking';
 import About from './About';
 import Footer from './Footer';
 import api from "./api/bookings"
@@ -15,9 +16,13 @@ import { useState, useEffect } from 'react';
 const App = () => {
     const [bookings, setBookings] = useState([]);
     const [name, setName] = useState("");
+    const [editName, setEditName] = useState("");
     const [persons, setPersons] = useState("");
+    const [editPersons, setEditPersons] = useState("");
     const [date, setDate] = useState("");
+    const [editDate, setEditDate] = useState("");
     const [time, setTime] = useState("");
+    const [editTime, setEditTime] = useState("");
     const Navigate = useNavigate();
 
     useEffect(() => {
@@ -48,12 +53,20 @@ const App = () => {
         const newBooking = {id, name: name, Persons: persons, date: date, time: time}
         try {
             const response = await api.post("/bookings",newBooking);
-            setBookings([...bookings, newBooking ]);
+            setBookings([newBooking, ...bookings ]);
             Navigate("/");
         } catch (err) {
             console.log(`Error: ${err.message}`);
             console.log(err.message);
         }
+    }
+
+    const handleEdit = () => {
+
+    }
+
+    const handleDelete = (id) => {
+        const booking = bookings.filter(booking => booking.id);
     }
 
   return (
@@ -70,6 +83,8 @@ const App = () => {
             <Route path='/booking/:id' element={
                 <BookingsPage
                     bookings={bookings}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
                 />}
             />
             <Route path='/booking' element={
@@ -83,6 +98,19 @@ const App = () => {
                     time={time}
                     setTime={setTime}
                     handleSubmit={handleSubmit}
+                />}
+            />
+            <Route path='/edit/:id' element={
+                <EditBooking
+                    editName={editName}
+                    setEditName={setEditName}
+                    editPersons={editPersons}
+                    setEditPersons={setEditPersons}
+                    editDate={editDate}
+                    setEditDate={setEditDate}
+                    editTime={editTime}
+                    setEditTime={setEditTime}
+                    handleEdit={handleEdit}
                 />}
             />
             <Route path='/about' element={<About/>}/>
