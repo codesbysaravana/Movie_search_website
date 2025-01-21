@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react';
+import React from 'react';
 import Dropdown from './DropDown';
 
 const NewBooking = ({ handleSubmit, name, setName, persons, setPersons, date, setDate, time, setTime  }) => {

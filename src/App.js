@@ -7,6 +7,7 @@ import EditBooking from './EditBooking';
 import About from './About';
 import Footer from './Footer';
 import api from "./api/bookings"
+import LandingArea from './LandingArea';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
@@ -61,8 +62,17 @@ const App = () => {
         }
     }
 
-    const handleEdit = () => {
-
+    const handleEdit = async (id) => {
+        const editedBooking = {id, name: editName, Persons: editPersons, date: editDate, time: editTime }
+        try {
+            const response = await api.put(`/bookings/${id}`, editedBooking);
+            
+            // now just setting the bookings will create new one so fetch the already one present and add
+            setBookings(bookings.map(booking => booking.id? [response.data]: booking));
+            Navigate("/");
+        } catch (err) {
+            console.log(err.message);
+        }
     }
 
     const handleDelete = (id) => {
@@ -102,6 +112,7 @@ const App = () => {
             />
             <Route path='/edit/:id' element={
                 <EditBooking
+                    bookings={bookings}
                     editName={editName}
                     setEditName={setEditName}
                     editPersons={editPersons}

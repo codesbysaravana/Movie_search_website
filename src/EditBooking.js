@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const EditBooking = ({ bookings, handleEdit, editName, setEditName, editPersons, setEditPersons, editDate, setEditDate, editTime, setEditTime }) => {
+  
   const { id } = useParams();
   const booking = bookings.find(booking => (booking.id).toString() === id);
     const [isOpen, setIsOpen] = useState(false);
