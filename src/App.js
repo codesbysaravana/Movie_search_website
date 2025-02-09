@@ -1,17 +1,10 @@
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MovieCard from './MovieCard.jsx';
 import SearchIcon from "./search.svg";
 //59606948
 
 const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=59606948";
 
-const movie1 = {
-    "Title": "The Amazing Spiderman 2 Webb Cut",
-    "Year": "2021",
-    "imdbID": "tt18351128",
-    "Type": "movie",
-    "Poster": "N/A"
-}
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -34,7 +27,7 @@ const App = () => {
 
       <div className='search'>
         <input
-          placeholder='Search for movies' 
+          placeholder=' here you can Search for movies' 
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
