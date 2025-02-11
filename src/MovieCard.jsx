@@ -14,11 +14,6 @@ const MovieCard = ({ movie }) => {
           <div>
             <span>{movie.Type}</span>
             <h3>{movie.Title}</h3>
-            <li>HOW</li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
           </div>
         </div>
   )
